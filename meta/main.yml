@@ -1,0 +1,17 @@
+galaxy_info:
+  author: DATA
+  description:
+  company: DATA DOG
+
+  min_ansible_version: 2
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags:
+    - mysql
+    - centos7
+
+dependencies: []
