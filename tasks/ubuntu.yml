@@ -3,7 +3,10 @@
 - name: MYSQL | INSTALL DEPENDENCIES
   become: true
   apt:
-    name: libaio1
+    name: "{{ item }}"
+  with_items:
+   - libaio1
+   - python-mysqldb
 
 - name: MYSQL | INSTALL
   become: true
