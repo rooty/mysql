@@ -1,0 +1,22 @@
+---
+
+- name: MYSQL | INSTALL DEPENDENCIES
+  become: true
+  apt:
+    name: libaio1
+
+- name: MYSQL | INSTALL
+  become: true
+  apt:
+    deb: "{{ item }}"
+  with_items:
+    - "http://dev.mysql.com/get/mysql-common_{{ mysql_version }}-1ubuntu{{ ansible_distribution_version }}_amd64.deb"
+    - "http://dev.mysql.com/get/mysql-community-client_{{ mysql_version }}-1ubuntu{{ ansible_distribution_version }}_amd64.deb"
+    - "http://dev.mysql.com/get/mysql-client_{{ mysql_version }}-1ubuntu{{ ansible_distribution_version }}_amd64.deb"
+    - "http://dev.mysql.com/get/mysql-community-server_{{ mysql_version }}-1ubuntu{{ ansible_distribution_version }}_amd64.deb"
+
+- name: MYSQL | RUN ON STARTUP
+  service:
+    name: mysql
+    enabled: yes
+    state: started

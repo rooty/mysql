@@ -1,22 +1,12 @@
 ---
 
-- name: MYSQL | CHECK MYSQL REPO
-  yum: name=mysql-community-release state=present
-  register: find_mysql
-  ignore_errors: true
+- name: MYSQL | INCLUDE CENTOS
+  include: centos.yml
+  when: ansible_distribution == 'CentOS'
 
-- name: MYSQL | INSTALL MYSQL REPO
-  yum: name=http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm state=present
-  when: find_mysql|failed
-
-- name: MYSQL | INSTALL PYTHON BINDINGS
-  yum: name=MySQL-python state=present
-
-- name: MYSQL | INSTALL
-  yum: name=mysql-community-server state=present enablerepo=mysql56-community
-
-- name: MYSQL | RUN ON STARTUP
-  service: name=mysqld enabled=yes state=started
+- name: MYSQL | INCLUDE UBUNTU
+  include: ubuntu.yml
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: MYSQL | copy .my.cnf file with root password credentials
   template: src=my.cnf.j2 dest=~/.my.cnf mode=0600

@@ -1,1 +1,2 @@
 mysql_root_password: pleasechangeme
+mysql_version: 5.7.19
