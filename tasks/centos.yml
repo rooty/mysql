@@ -9,11 +9,8 @@
 
 - name: MYSQL | INSTALL MYSQL REPO
   yum:
-    #name: http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm state=present
     name: http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
     state: present
-  #when: find_mysql|failed
-  #when: find_mysql|result is failed
   when: find_mysql is failed
 
 - name: MYSQL | INSTALL PYTHON BINDINGS
