@@ -1,7 +1,7 @@
 Role Name
 =========
 
-[![Build Status](https://travis-ci.org/rooty/mysql.svg?branch=master)](https://travis-ci.org/rooty/mysql)
+[![Build Status](https://travis-ci.org/rooty/mysql.svg?branch=master)](https://travis-ci.org/rooty/mysql)  [![Ansible Galaxy](https://img.shields.io/badge/galaxy-rooty.mysql-blue.svg?style=flat)](https://galaxy.ansible.com/rooty/mysql)
 
 A brief description of the role goes here.
 
